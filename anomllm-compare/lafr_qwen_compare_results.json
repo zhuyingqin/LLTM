@@ -1,0 +1,4282 @@
+{
+  "config": {
+    "data_root": "C:\\\u6742\u7269\\LLM-NN\\anomllm-compare\\data",
+    "types": "point,range,trend,freq",
+    "model": "models/Qwen3-8B",
+    "num": "8",
+    "scale": "0.25",
+    "max_new_tokens": "128",
+    "window": "72",
+    "patch": "6",
+    "lafr_epochs": "4",
+    "lafr_lr": "0.002",
+    "lafr_max_candidates": "8",
+    "quantization": "4bit",
+    "device": "cuda",
+    "seed": "13",
+    "output": "anomllm-compare\\lafr_qwen_compare_results.json",
+    "save_raw": "True"
+  },
+  "results": {
+    "point": {
+      "lafr_detector": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.21561166089563655,
+          "recall": 0.585398091246936,
+          "f1": 0.2875258528393863,
+          "affi precision": 0.6202833113579198,
+          "affi recall": 0.8697614680535146,
+          "affi f1": 0.7229805102715396
+        },
+        "threshold": 0.0636746734380722,
+        "train_affi_f1": 0.5908206589577072
+      },
+      "llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.03125,
+          "recall": 0.02913533834586466,
+          "f1": 0.030155642023346304,
+          "affi precision": 0.22994535725132215,
+          "affi recall": 0.20641897302597007,
+          "affi f1": 0.1996049151349623
+        }
+      },
+      "lafr_llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.23993844696969696,
+          "recall": 0.13571449410666353,
+          "f1": 0.17225762211726028,
+          "affi precision": 0.5928617155911984,
+          "affi recall": 0.6055247129585284,
+          "affi f1": 0.5829200681759507
+        }
+      },
+      "lafr_train_loss": [
+        4.89056812286377,
+        4.15186110496521,
+        4.003061466217041,
+        3.9593802452087403
+      ],
+      "raw": {
+        "llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 73, \"end\": 73}, {\"start\": 81, \"end\": 81}, {\"start\": 97, \"end\": 97}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 73,
+                "end": 73
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 97,
+                "end": 97
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 438,
+                "end": 450,
+                "peak_score": 1.0592925548553467,
+                "mean_score": 0.6021853089332581
+              },
+              {
+                "start": 480,
+                "end": 492,
+                "peak_score": 1.5472933053970337,
+                "mean_score": 0.8963449597358704
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 164, \"end\": 165}, {\"start\": 189, \"end\": 191}, {\"start\": 214, \"end\": 215}, {\"start\": 239, \"end\": 240}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 189,
+                "end": 191
+              },
+              {
+                "start": 214,
+                "end": 215
+              },
+              {
+                "start": 239,
+                "end": 240
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 342,
+                "end": 360,
+                "peak_score": 1.337416410446167,
+                "mean_score": 0.8364263772964478
+              },
+              {
+                "start": 366,
+                "end": 396,
+                "peak_score": 1.0913199186325073,
+                "mean_score": 0.5818615555763245
+              },
+              {
+                "start": 420,
+                "end": 432,
+                "peak_score": 1.7953588962554932,
+                "mean_score": 1.304929256439209
+              },
+              {
+                "start": 456,
+                "end": 486,
+                "peak_score": 4.984017372131348,
+                "mean_score": 1.7394152879714966
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 73, \"end\": 73}, {\"start\": 81, \"end\": 81}, {\"start\": 98, \"end\": 98}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 73,
+                "end": 73
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 98,
+                "end": 98
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8088480234146118,
+                "mean_score": 1.8088480234146118
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 606,
+                "peak_score": 0.7545090317726135,
+                "mean_score": 0.38028720021247864
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 73, \"end\": 73}, {\"start\": 81, \"end\": 81}, {\"start\": 97, \"end\": 97}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 73,
+                "end": 73
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 97,
+                "end": 97
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0799576044082642,
+                "mean_score": 1.0799576044082642
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 73, \"end\": 73}, {\"start\": 81, \"end\": 81}, {\"start\": 97, \"end\": 97}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 73,
+                "end": 73
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 97,
+                "end": 97
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.1321563720703125,
+                "mean_score": 1.1321563720703125
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 552,
+                "end": 576,
+                "peak_score": 2.9527599811553955,
+                "mean_score": 1.7805466651916504
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 780,
+                "end": 792,
+                "peak_score": 1.9694734811782837,
+                "mean_score": 1.077900767326355
+              },
+              {
+                "start": 822,
+                "end": 828,
+                "peak_score": 0.9222610592842102,
+                "mean_score": 0.9222610592842102
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 157, \"end\": 157}, {\"start\": 159, \"end\": 159}, {\"start\": 165, \"end\": 165}, {\"start\": 189, \"end\": 189}, {\"start\": 239, \"end\": 239}]",
+            "parsed": [
+              {
+                "start": 157,
+                "end": 157
+              },
+              {
+                "start": 159,
+                "end": 159
+              },
+              {
+                "start": 165,
+                "end": 165
+              },
+              {
+                "start": 189,
+                "end": 189
+              },
+              {
+                "start": 239,
+                "end": 239
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.998880922794342,
+                "mean_score": 0.998880922794342
+              },
+              {
+                "start": 222,
+                "end": 246,
+                "peak_score": 0.5541782379150391,
+                "mean_score": 0.2696680426597595
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6803897619247437,
+                "mean_score": 0.6803898215293884
+              },
+              {
+                "start": 624,
+                "end": 636,
+                "peak_score": 1.453567385673523,
+                "mean_score": 0.995199978351593
+              },
+              {
+                "start": 654,
+                "end": 684,
+                "peak_score": 2.7999448776245117,
+                "mean_score": 0.9755904078483582
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 72, \"end\": 72}, {\"start\": 81, \"end\": 81}, {\"start\": 97, \"end\": 97}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 72,
+                "end": 72
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 97,
+                "end": 97
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 234,
+                "peak_score": 1.8083745241165161,
+                "mean_score": 0.9518548846244812
+              },
+              {
+                "start": 240,
+                "end": 288,
+                "peak_score": 0.8571672439575195,
+                "mean_score": 0.2841900587081909
+              },
+              {
+                "start": 300,
+                "end": 312,
+                "peak_score": 0.799866259098053,
+                "mean_score": 0.44869503378868103
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 882,
+                "end": 900,
+                "peak_score": 1.924523949623108,
+                "mean_score": 0.77635657787323
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 5, \"end\": 5}, {\"start\": 22, \"end\": 23}, {\"start\": 31, \"end\": 31}, {\"start\": 47, \"end\": 47}, {\"start\": 56, \"end\": 56}, {\"start\": 64, \"end\": 64}, {\"start\": 73, \"end\": 73}, {\"start\": 81, \"end\": 81}, {\"start\": 97, \"end\": 97}, {\"start\":",
+            "parsed": [
+              {
+                "start": 5,
+                "end": 5
+              },
+              {
+                "start": 22,
+                "end": 23
+              },
+              {
+                "start": 31,
+                "end": 31
+              },
+              {
+                "start": 47,
+                "end": 47
+              },
+              {
+                "start": 56,
+                "end": 56
+              },
+              {
+                "start": 64,
+                "end": 64
+              },
+              {
+                "start": 73,
+                "end": 73
+              },
+              {
+                "start": 81,
+                "end": 81
+              },
+              {
+                "start": 97,
+                "end": 97
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          }
+        ],
+        "lafr_llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 56, \"end\": 57}, {\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 438,
+                "end": 450,
+                "peak_score": 1.0592925548553467,
+                "mean_score": 0.6021853089332581
+              },
+              {
+                "start": 480,
+                "end": 492,
+                "peak_score": 1.5472933053970337,
+                "mean_score": 0.8963449597358704
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 56, \"end\": 57}, {\"start\": 80, \"end\": 93}, {\"start\": 114, \"end\": 122}, {\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 114,
+                "end": 122
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 342,
+                "end": 360,
+                "peak_score": 1.337416410446167,
+                "mean_score": 0.8364263772964478
+              },
+              {
+                "start": 366,
+                "end": 396,
+                "peak_score": 1.0913199186325073,
+                "mean_score": 0.5818615555763245
+              },
+              {
+                "start": 420,
+                "end": 432,
+                "peak_score": 1.7953588962554932,
+                "mean_score": 1.304929256439209
+              },
+              {
+                "start": 456,
+                "end": 486,
+                "peak_score": 4.984017372131348,
+                "mean_score": 1.7394152879714966
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8088480234146118,
+                "mean_score": 1.8088480234146118
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 606,
+                "peak_score": 0.7545090317726135,
+                "mean_score": 0.38028720021247864
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 56, \"end\": 57}, {\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0799576044082642,
+                "mean_score": 1.0799576044082642
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 56, \"end\": 57}, {\"start\": 138, \"end\": 144}, {\"start\": 164, \"end\": 165}, {\"start\": 195, \"end\": 198}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 138,
+                "end": 144
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 195,
+                "end": 198
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.1321563720703125,
+                "mean_score": 1.1321563720703125
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 552,
+                "end": 576,
+                "peak_score": 2.9527599811553955,
+                "mean_score": 1.7805466651916504
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 780,
+                "end": 792,
+                "peak_score": 1.9694734811782837,
+                "mean_score": 1.077900767326355
+              },
+              {
+                "start": 822,
+                "end": 828,
+                "peak_score": 0.9222610592842102,
+                "mean_score": 0.9222610592842102
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 156, \"end\": 159}, {\"start\": 164, \"end\": 171}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 156,
+                "end": 159
+              },
+              {
+                "start": 164,
+                "end": 171
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.998880922794342,
+                "mean_score": 0.998880922794342
+              },
+              {
+                "start": 222,
+                "end": 246,
+                "peak_score": 0.5541782379150391,
+                "mean_score": 0.2696680426597595
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6803897619247437,
+                "mean_score": 0.6803898215293884
+              },
+              {
+                "start": 624,
+                "end": 636,
+                "peak_score": 1.453567385673523,
+                "mean_score": 0.995199978351593
+              },
+              {
+                "start": 654,
+                "end": 684,
+                "peak_score": 2.7999448776245117,
+                "mean_score": 0.9755904078483582
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 234,
+                "peak_score": 1.8083745241165161,
+                "mean_score": 0.9518548846244812
+              },
+              {
+                "start": 240,
+                "end": 288,
+                "peak_score": 0.8571672439575195,
+                "mean_score": 0.2841900587081909
+              },
+              {
+                "start": 300,
+                "end": 312,
+                "peak_score": 0.799866259098053,
+                "mean_score": 0.44869503378868103
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 882,
+                "end": 900,
+                "peak_score": 1.924523949623108,
+                "mean_score": 0.77635657787323
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 80, \"end\": 93}, {\"start\": 164, \"end\": 165}]",
+            "parsed": [
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 164,
+                "end": 165
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8816163539886475,
+                "mean_score": 0.8816164135932922
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.2306721210479736,
+                "mean_score": 1.230672001838684
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8129795789718628,
+                "mean_score": 1.8129795789718628
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.5325298309326172,
+                "mean_score": 0.5325298309326172
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.056778073310852,
+                "mean_score": 1.056778073310852
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.6918620467185974,
+                "mean_score": 0.6918620467185974
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0883052349090576,
+                "mean_score": 2.0883052349090576
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1229592561721802,
+                "mean_score": 1.1229592561721802
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "range": {
+      "lafr_detector": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.9010416666666666,
+          "recall": 0.6396998431155407,
+          "f1": 0.6921309872922776,
+          "affi precision": 0.9930117161820263,
+          "affi recall": 0.8995566648862834,
+          "affi f1": 0.9335834950911471
+        },
+        "threshold": 2.1461333465576464,
+        "train_affi_f1": 0.7934819380311179
+      },
+      "llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.25608193277310926,
+          "recall": 0.2930797803617571,
+          "f1": 0.21138848990231476,
+          "affi precision": 0.38233524612779474,
+          "affi recall": 0.5149088349756051,
+          "affi f1": 0.42803070522315584
+        }
+      },
+      "lafr_llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.4583333333333333,
+          "recall": 0.22270556478405315,
+          "f1": 0.28417771464646463,
+          "affi precision": 0.6148847868834986,
+          "affi recall": 0.5240415526537445,
+          "affi f1": 0.5572806587719981
+        }
+      },
+      "lafr_train_loss": [
+        3.9395729732513427,
+        3.426373767852783,
+        3.560411834716797,
+        3.4869348049163817
+      ],
+      "raw": {
+        "llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 127, \"end\": 129}, {\"start\": 147, \"end\": 149}, {\"start\": 234, \"end\": 236}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 127,
+                "end": 129
+              },
+              {
+                "start": 147,
+                "end": 149
+              },
+              {
+                "start": 234,
+                "end": 236
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 145, \"end\": 158}, {\"start\": 175, \"end\": 188}, {\"start\": 225, \"end\": 239}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 145,
+                "end": 158
+              },
+              {
+                "start": 175,
+                "end": 188
+              },
+              {
+                "start": 225,
+                "end": 239
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 70, \"end\": 73}, {\"start\": 107, \"end\": 113}, {\"start\": 116, \"end\": 123}, {\"start\": 140, \"end\": 143}, {\"start\": 172, \"end\": 173}, {\"start\": 204, \"end\": 209}]",
+            "parsed": [
+              {
+                "start": 70,
+                "end": 73
+              },
+              {
+                "start": 107,
+                "end": 113
+              },
+              {
+                "start": 116,
+                "end": 123
+              },
+              {
+                "start": 140,
+                "end": 143
+              },
+              {
+                "start": 172,
+                "end": 173
+              },
+              {
+                "start": 204,
+                "end": 209
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 282,
+                "end": 288,
+                "peak_score": 3.716248035430908,
+                "mean_score": 3.716247797012329
+              },
+              {
+                "start": 426,
+                "end": 432,
+                "peak_score": 3.1050069332122803,
+                "mean_score": 3.1050069332122803
+              },
+              {
+                "start": 822,
+                "end": 834,
+                "peak_score": 3.237518548965454,
+                "mean_score": 2.731390953063965
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 51, \"end\": 51}, {\"start\": 83, \"end\": 83}, {\"start\": 147, \"end\": 147}, {\"start\": 171, \"end\": 171}, {\"start\": 178, \"end\": 178}, {\"start\": 191, \"end\": 191}, {\"start\": 207, \"end\": 207}, {\"start\": 208, \"end\": 209}, {\"start\":",
+            "parsed": [
+              {
+                "start": 51,
+                "end": 51
+              },
+              {
+                "start": 83,
+                "end": 83
+              },
+              {
+                "start": 147,
+                "end": 147
+              },
+              {
+                "start": 171,
+                "end": 171
+              },
+              {
+                "start": 178,
+                "end": 178
+              },
+              {
+                "start": 191,
+                "end": 191
+              },
+              {
+                "start": 207,
+                "end": 207
+              },
+              {
+                "start": 208,
+                "end": 209
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 834,
+                "end": 840,
+                "peak_score": 3.06239652633667,
+                "mean_score": 3.062396764755249
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 195, \"end\": 195}, {\"start\": 219, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 195,
+                "end": 195
+              },
+              {
+                "start": 219,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 876,
+                "end": 882,
+                "peak_score": 3.873779296875,
+                "mean_score": 3.873779296875
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 149, \"end\": 154}, {\"start\": 198, \"end\": 200}, {\"start\": 223, \"end\": 225}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 149,
+                "end": 154
+              },
+              {
+                "start": 198,
+                "end": 200
+              },
+              {
+                "start": 223,
+                "end": 225
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 186,
+                "end": 192,
+                "peak_score": 3.433324098587036,
+                "mean_score": 3.433324098587036
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 133, \"end\": 137}, {\"start\": 176, \"end\": 180}, {\"start\": 228, \"end\": 230}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 133,
+                "end": 137
+              },
+              {
+                "start": 176,
+                "end": 180
+              },
+              {
+                "start": 228,
+                "end": 230
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 138, \"end\": 139}, {\"start\": 196, \"end\": 200}, {\"start\": 230, \"end\": 233}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 138,
+                "end": 139
+              },
+              {
+                "start": 196,
+                "end": 200
+              },
+              {
+                "start": 230,
+                "end": 233
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 552,
+                "end": 558,
+                "peak_score": 3.405337333679199,
+                "mean_score": 3.4053375720977783
+              },
+              {
+                "start": 924,
+                "end": 930,
+                "peak_score": 3.396634340286255,
+                "mean_score": 3.396634340286255
+              }
+            ]
+          }
+        ],
+        "lafr_llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 70, \"end\": 72}, {\"start\": 106, \"end\": 108}, {\"start\": 206, \"end\": 208}]",
+            "parsed": [
+              {
+                "start": 70,
+                "end": 72
+              },
+              {
+                "start": 106,
+                "end": 108
+              },
+              {
+                "start": 206,
+                "end": 208
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 282,
+                "end": 288,
+                "peak_score": 3.716248035430908,
+                "mean_score": 3.716247797012329
+              },
+              {
+                "start": 426,
+                "end": 432,
+                "peak_score": 3.1050069332122803,
+                "mean_score": 3.1050069332122803
+              },
+              {
+                "start": 822,
+                "end": 834,
+                "peak_score": 3.237518548965454,
+                "mean_score": 2.731390953063965
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 208, \"end\": 210}]",
+            "parsed": [
+              {
+                "start": 208,
+                "end": 210
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 834,
+                "end": 840,
+                "peak_score": 3.06239652633667,
+                "mean_score": 3.062396764755249
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 219, \"end\": 220}]",
+            "parsed": [
+              {
+                "start": 219,
+                "end": 220
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 876,
+                "end": 882,
+                "peak_score": 3.873779296875,
+                "mean_score": 3.873779296875
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 46, \"end\": 48}]",
+            "parsed": [
+              {
+                "start": 46,
+                "end": 48
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 186,
+                "end": 192,
+                "peak_score": 3.433324098587036,
+                "mean_score": 3.433324098587036
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": []
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 138, \"end\": 140}, {\"start\": 231, \"end\": 232}]",
+            "parsed": [
+              {
+                "start": 138,
+                "end": 140
+              },
+              {
+                "start": 231,
+                "end": 232
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 552,
+                "end": 558,
+                "peak_score": 3.405337333679199,
+                "mean_score": 3.4053375720977783
+              },
+              {
+                "start": 924,
+                "end": 930,
+                "peak_score": 3.396634340286255,
+                "mean_score": 3.396634340286255
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "trend": {
+      "lafr_detector": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.06601190476190477,
+          "recall": 0.06577479338842976,
+          "f1": 0.06528256858655543,
+          "affi precision": 0.14966875,
+          "affi recall": 0.2449478409090909,
+          "affi f1": 0.1857206286433174
+        },
+        "threshold": 0.029341911897063255,
+        "train_affi_f1": 0.28915191319876665
+      },
+      "llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "affi precision": 0.05249999999999999,
+          "affi recall": 0.093,
+          "affi f1": 0.06711340206185568
+        }
+      },
+      "lafr_llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "affi precision": 0.08828124999999999,
+          "affi recall": 0.19022250000000002,
+          "affi f1": 0.12059401122245034
+        }
+      },
+      "lafr_train_loss": [
+        4.552982482910156,
+        3.841762886047363,
+        3.709184055328369,
+        3.6934095287322997
+      ],
+      "raw": {
+        "llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.525307834148407,
+                "mean_score": 0.525307834148407
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776634931564331,
+                "mean_score": 0.8776635527610779
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843089044094086,
+                "mean_score": 0.18843089044094086
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828781723976135,
+                "mean_score": 0.5828781723976135
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.46172210574150085,
+                "mean_score": 0.46172210574150085
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835708379745483,
+                "mean_score": 1.0835708379745483
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530690610408783,
+                "mean_score": 0.4530690610408783
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.638079822063446,
+                "mean_score": 0.638079822063446
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253084897994995,
+                "mean_score": 0.5253085494041443
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776643872261047,
+                "mean_score": 0.8776643872261047
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.1884309947490692,
+                "mean_score": 0.1884310096502304
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828790664672852,
+                "mean_score": 0.5828790664672852
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.4617224931716919,
+                "mean_score": 0.4617224633693695
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835715532302856,
+                "mean_score": 1.0835715532302856
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530697762966156,
+                "mean_score": 0.4530697762966156
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380802989006042,
+                "mean_score": 0.6380802989006042
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          }
+        ],
+        "lafr_llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.525307834148407,
+                "mean_score": 0.525307834148407
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776634931564331,
+                "mean_score": 0.8776635527610779
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843089044094086,
+                "mean_score": 0.18843089044094086
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828781723976135,
+                "mean_score": 0.5828781723976135
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.46172210574150085,
+                "mean_score": 0.46172210574150085
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835708379745483,
+                "mean_score": 1.0835708379745483
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530690610408783,
+                "mean_score": 0.4530690610408783
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.638079822063446,
+                "mean_score": 0.638079822063446
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253084897994995,
+                "mean_score": 0.5253085494041443
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776643872261047,
+                "mean_score": 0.8776643872261047
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.1884309947490692,
+                "mean_score": 0.1884310096502304
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828790664672852,
+                "mean_score": 0.5828790664672852
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.4617224931716919,
+                "mean_score": 0.4617224633693695
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835715532302856,
+                "mean_score": 1.0835715532302856
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530697762966156,
+                "mean_score": 0.4530697762966156
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380802989006042,
+                "mean_score": 0.6380802989006042
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 20, \"end\": 21}, {\"start\": 146, \"end\": 147}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 20,
+                "end": 21
+              },
+              {
+                "start": 146,
+                "end": 147
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.5253086686134338,
+                "mean_score": 0.5253086686134338
+              },
+              {
+                "start": 78,
+                "end": 84,
+                "peak_score": 0.8776646256446838,
+                "mean_score": 0.8776646256446838
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.18843108415603638,
+                "mean_score": 0.18843108415603638
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 0.5828788876533508,
+                "mean_score": 0.5828788876533508
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 0.461722731590271,
+                "mean_score": 0.4617227613925934
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.0835720300674438,
+                "mean_score": 1.0835720300674438
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 0.4530699551105499,
+                "mean_score": 0.4530699551105499
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.6380806565284729,
+                "mean_score": 0.6380806565284729
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "freq": {
+      "lafr_detector": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.27424876901850587,
+          "recall": 0.6681130174428025,
+          "f1": 0.37486181791269135,
+          "affi precision": 0.6117338937936022,
+          "affi recall": 0.8269963031290842,
+          "affi f1": 0.6995951407717677
+        },
+        "threshold": 0.07872536033391953,
+        "train_affi_f1": 0.6770827576231234
+      },
+      "llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.042103064311849146,
+          "recall": 0.10014841865451621,
+          "f1": 0.05753633850543962,
+          "affi precision": 0.45534891146862744,
+          "affi recall": 0.6622196404284184,
+          "affi f1": 0.5350833059926463
+        }
+      },
+      "lafr_llm": {
+        "n": 8,
+        "metrics": {
+          "precision": 0.2231764763014763,
+          "recall": 0.2779302477183833,
+          "f1": 0.22968419068653645,
+          "affi precision": 0.6055107703309089,
+          "affi recall": 0.637390745283075,
+          "affi f1": 0.60784345467309
+        }
+      },
+      "lafr_train_loss": [
+        5.054863014221191,
+        4.311808986663818,
+        4.054041309356689,
+        4.132498035430908
+      ],
+      "raw": {
+        "llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 138, \"end\": 140}, {\"start\": 163, \"end\": 165}, {\"start\": 180, \"end\": 182}, {\"start\": 198, \"end\": 200}, {\"start\": 214, \"end\": 216}, {\"start\": 222, \"end\": 224}, {\"start\":",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 138,
+                "end": 140
+              },
+              {
+                "start": 163,
+                "end": 165
+              },
+              {
+                "start": 180,
+                "end": 182
+              },
+              {
+                "start": 198,
+                "end": 200
+              },
+              {
+                "start": 214,
+                "end": 216
+              },
+              {
+                "start": 222,
+                "end": 224
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4960901737213135,
+                "mean_score": 1.496090054512024
+              },
+              {
+                "start": 240,
+                "end": 258,
+                "peak_score": 1.0184085369110107,
+                "mean_score": 0.6744434833526611
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 1.1764672994613647,
+                "mean_score": 1.1764672994613647
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 2.018712282180786,
+                "mean_score": 2.018712282180786
+              },
+              {
+                "start": 654,
+                "end": 708,
+                "peak_score": 2.303986072540283,
+                "mean_score": 0.7675806879997253
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.5778884887695312,
+                "mean_score": 0.5778884887695312
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0218547582626343,
+                "mean_score": 1.0218547582626343
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 140, \"end\": 143}, {\"start\": 164, \"end\": 167}, {\"start\": 171, \"end\": 174}, {\"start\": 186, \"end\": 189}, {\"start\": 203, \"end\": 206}, {\"start\": 228, \"end\": 231}, {\"start\":",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 140,
+                "end": 143
+              },
+              {
+                "start": 164,
+                "end": 167
+              },
+              {
+                "start": 171,
+                "end": 174
+              },
+              {
+                "start": 186,
+                "end": 189
+              },
+              {
+                "start": 203,
+                "end": 206
+              },
+              {
+                "start": 228,
+                "end": 231
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 1.6468327045440674,
+                "mean_score": 1.6468325853347778
+              },
+              {
+                "start": 180,
+                "end": 192,
+                "peak_score": 4.4599738121032715,
+                "mean_score": 2.832275152206421
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.1065269708633423,
+                "mean_score": 1.1065269708633423
+              },
+              {
+                "start": 348,
+                "end": 360,
+                "peak_score": 3.9413528442382812,
+                "mean_score": 2.4605581760406494
+              },
+              {
+                "start": 516,
+                "end": 540,
+                "peak_score": 2.220824718475342,
+                "mean_score": 0.9807493090629578
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.2790343761444092,
+                "mean_score": 1.2790344953536987
+              },
+              {
+                "start": 684,
+                "end": 696,
+                "peak_score": 5.5747456550598145,
+                "mean_score": 3.0782816410064697
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.1764672994613647,
+                "mean_score": 1.1764672994613647
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 124, \"end\": 137}, {\"start\": 142, \"end\": 155}, {\"start\": 160, \"end\": 173}, {\"start\": 174, \"end\": 187}, {\"start\": 192, \"end\": 205}, {\"start\": 210, \"end\": 223}, {\"start\":",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 124,
+                "end": 137
+              },
+              {
+                "start": 142,
+                "end": 155
+              },
+              {
+                "start": 160,
+                "end": 173
+              },
+              {
+                "start": 174,
+                "end": 187
+              },
+              {
+                "start": 192,
+                "end": 205
+              },
+              {
+                "start": 210,
+                "end": 223
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 132,
+                "end": 144,
+                "peak_score": 5.4531049728393555,
+                "mean_score": 3.939061403274536
+              },
+              {
+                "start": 150,
+                "end": 192,
+                "peak_score": 1.6799769401550293,
+                "mean_score": 0.6365763545036316
+              },
+              {
+                "start": 198,
+                "end": 216,
+                "peak_score": 0.7580304741859436,
+                "mean_score": 0.4845360219478607
+              },
+              {
+                "start": 294,
+                "end": 300,
+                "peak_score": 2.0512642860412598,
+                "mean_score": 2.0512640476226807
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 1.1581697463989258,
+                "mean_score": 1.1581697463989258
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.9051851034164429,
+                "mean_score": 1.9051851034164429
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 0.9891842007637024,
+                "mean_score": 0.9891842007637024
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 150, \"end\": 163}, {\"start\": 184, \"end\": 199}, {\"start\": 210, \"end\": 227}, {\"start\": 235, \"end\": 249}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 150,
+                "end": 163
+              },
+              {
+                "start": 184,
+                "end": 199
+              },
+              {
+                "start": 210,
+                "end": 227
+              },
+              {
+                "start": 235,
+                "end": 249
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 234,
+                "peak_score": 1.229638695716858,
+                "mean_score": 0.7252997756004333
+              },
+              {
+                "start": 258,
+                "end": 288,
+                "peak_score": 3.44480562210083,
+                "mean_score": 0.9224384427070618
+              },
+              {
+                "start": 294,
+                "end": 312,
+                "peak_score": 1.2661030292510986,
+                "mean_score": 0.8711780309677124
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 2.018712282180786,
+                "mean_score": 2.018712282180786
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.1065269708633423,
+                "mean_score": 1.1065269708633423
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 1.652631163597107,
+                "mean_score": 1.652631163597107
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.9051851034164429,
+                "mean_score": 1.9051851034164429
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 147, \"end\": 157}, {\"start\": 181, \"end\": 193}, {\"start\": 239, \"end\": 248}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 147,
+                "end": 157
+              },
+              {
+                "start": 181,
+                "end": 193
+              },
+              {
+                "start": 239,
+                "end": 248
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 96,
+                "end": 120,
+                "peak_score": 1.3434391021728516,
+                "mean_score": 0.8494685292243958
+              },
+              {
+                "start": 126,
+                "end": 144,
+                "peak_score": 0.9947296977043152,
+                "mean_score": 0.5876361131668091
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.1622614860534668,
+                "mean_score": 1.1622614860534668
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0512642860412598,
+                "mean_score": 2.0512640476226807
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1581697463989258,
+                "mean_score": 1.1581697463989258
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 114, \"end\": 115}, {\"start\": 142, \"end\": 143}, {\"start\": 172, \"end\": 173}, {\"start\": 222, \"end\": 223}, {\"start\": 247, \"end\": 248}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 114,
+                "end": 115
+              },
+              {
+                "start": 142,
+                "end": 143
+              },
+              {
+                "start": 172,
+                "end": 173
+              },
+              {
+                "start": 222,
+                "end": 223
+              },
+              {
+                "start": 247,
+                "end": 248
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.7679334282875061,
+                "mean_score": 0.7679334282875061
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.0413469076156616,
+                "mean_score": 1.0413469076156616
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1622614860534668,
+                "mean_score": 1.1622614860534668
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 120, \"end\": 123}, {\"start\": 158, \"end\": 161}, {\"start\": 183, \"end\": 186}, {\"start\": 209, \"end\": 212}, {\"start\": 234, \"end\": 237}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 120,
+                "end": 123
+              },
+              {
+                "start": 158,
+                "end": 161
+              },
+              {
+                "start": 183,
+                "end": 186
+              },
+              {
+                "start": 209,
+                "end": 212
+              },
+              {
+                "start": 234,
+                "end": 237
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 408,
+                "end": 432,
+                "peak_score": 1.4791163206100464,
+                "mean_score": 0.9971974492073059
+              },
+              {
+                "start": 438,
+                "end": 456,
+                "peak_score": 6.572040557861328,
+                "mean_score": 2.5444226264953613
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 1.798267126083374,
+                "mean_score": 1.7982672452926636
+              },
+              {
+                "start": 546,
+                "end": 564,
+                "peak_score": 2.8019261360168457,
+                "mean_score": 1.262376308441162
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}, {\"start\": 122, \"end\": 135}, {\"start\": 142, \"end\": 155}, {\"start\": 164, \"end\": 177}, {\"start\": 198, \"end\": 211}, {\"start\": 215, \"end\": 228}, {\"start\": 231, \"end\": 244}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              },
+              {
+                "start": 122,
+                "end": 135
+              },
+              {
+                "start": 142,
+                "end": 155
+              },
+              {
+                "start": 164,
+                "end": 177
+              },
+              {
+                "start": 198,
+                "end": 211
+              },
+              {
+                "start": 215,
+                "end": 228
+              },
+              {
+                "start": 231,
+                "end": 244
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.7679334282875061,
+                "mean_score": 0.7679334282875061
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.0413469076156616,
+                "mean_score": 1.0413469076156616
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 726,
+                "end": 738,
+                "peak_score": 0.6538152694702148,
+                "mean_score": 0.5295276641845703
+              }
+            ]
+          }
+        ],
+        "lafr_llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4960901737213135,
+                "mean_score": 1.496090054512024
+              },
+              {
+                "start": 240,
+                "end": 258,
+                "peak_score": 1.0184085369110107,
+                "mean_score": 0.6744434833526611
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 1.1764672994613647,
+                "mean_score": 1.1764672994613647
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 2.018712282180786,
+                "mean_score": 2.018712282180786
+              },
+              {
+                "start": 654,
+                "end": 708,
+                "peak_score": 2.303986072540283,
+                "mean_score": 0.7675806879997253
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 0.5778884887695312,
+                "mean_score": 0.5778884887695312
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0218547582626343,
+                "mean_score": 1.0218547582626343
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 45, \"end\": 48}, {\"start\": 87, \"end\": 90}, {\"start\": 129, \"end\": 135}, {\"start\": 164, \"end\": 165}, {\"start\": 171, \"end\": 174}, {\"start\": 182, \"end\": 183}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 45,
+                "end": 48
+              },
+              {
+                "start": 87,
+                "end": 90
+              },
+              {
+                "start": 129,
+                "end": 135
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 171,
+                "end": 174
+              },
+              {
+                "start": 182,
+                "end": 183
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 1.6468327045440674,
+                "mean_score": 1.6468325853347778
+              },
+              {
+                "start": 180,
+                "end": 192,
+                "peak_score": 4.4599738121032715,
+                "mean_score": 2.832275152206421
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.1065269708633423,
+                "mean_score": 1.1065269708633423
+              },
+              {
+                "start": 348,
+                "end": 360,
+                "peak_score": 3.9413528442382812,
+                "mean_score": 2.4605581760406494
+              },
+              {
+                "start": 516,
+                "end": 540,
+                "peak_score": 2.220824718475342,
+                "mean_score": 0.9807493090629578
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.2790343761444092,
+                "mean_score": 1.2790344953536987
+              },
+              {
+                "start": 684,
+                "end": 696,
+                "peak_score": 5.5747456550598145,
+                "mean_score": 3.0782816410064697
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.1764672994613647,
+                "mean_score": 1.1764672994613647
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 132,
+                "end": 144,
+                "peak_score": 5.4531049728393555,
+                "mean_score": 3.939061403274536
+              },
+              {
+                "start": 150,
+                "end": 192,
+                "peak_score": 1.6799769401550293,
+                "mean_score": 0.6365763545036316
+              },
+              {
+                "start": 198,
+                "end": 216,
+                "peak_score": 0.7580304741859436,
+                "mean_score": 0.4845360219478607
+              },
+              {
+                "start": 294,
+                "end": 300,
+                "peak_score": 2.0512642860412598,
+                "mean_score": 2.0512640476226807
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 1.1581697463989258,
+                "mean_score": 1.1581697463989258
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.9051851034164429,
+                "mean_score": 1.9051851034164429
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 0.9891842007637024,
+                "mean_score": 0.9891842007637024
+              }
+            ]
+          },
+          {
+            "i": 3,
+            "response": "[{\"start\": 56, \"end\": 58}, {\"start\": 64, \"end\": 72}, {\"start\": 92, \"end\": 93}, {\"start\": 200, \"end\": 201}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 58
+              },
+              {
+                "start": 64,
+                "end": 72
+              },
+              {
+                "start": 92,
+                "end": 93
+              },
+              {
+                "start": 200,
+                "end": 201
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 234,
+                "peak_score": 1.229638695716858,
+                "mean_score": 0.7252997756004333
+              },
+              {
+                "start": 258,
+                "end": 288,
+                "peak_score": 3.44480562210083,
+                "mean_score": 0.9224384427070618
+              },
+              {
+                "start": 294,
+                "end": 312,
+                "peak_score": 1.2661030292510986,
+                "mean_score": 0.8711780309677124
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 2.018712282180786,
+                "mean_score": 2.018712282180786
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 1.1065269708633423,
+                "mean_score": 1.1065269708633423
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 1.652631163597107,
+                "mean_score": 1.652631163597107
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.9051851034164429,
+                "mean_score": 1.9051851034164429
+              }
+            ]
+          },
+          {
+            "i": 4,
+            "response": "[{\"start\": 2, \"end\": 3}, {\"start\": 24, \"end\": 30}, {\"start\": 56, \"end\": 57}, {\"start\": 110, \"end\": 111}, {\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 2,
+                "end": 3
+              },
+              {
+                "start": 24,
+                "end": 30
+              },
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 110,
+                "end": 111
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 96,
+                "end": 120,
+                "peak_score": 1.3434391021728516,
+                "mean_score": 0.8494685292243958
+              },
+              {
+                "start": 126,
+                "end": 144,
+                "peak_score": 0.9947296977043152,
+                "mean_score": 0.5876361131668091
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.1622614860534668,
+                "mean_score": 1.1622614860534668
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.0512642860412598,
+                "mean_score": 2.0512640476226807
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1581697463989258,
+                "mean_score": 1.1581697463989258
+              }
+            ]
+          },
+          {
+            "i": 5,
+            "response": "[{\"start\": 38, \"end\": 39}, {\"start\": 56, \"end\": 57}, {\"start\": 164, \"end\": 165}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 38,
+                "end": 39
+              },
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.7679334282875061,
+                "mean_score": 0.7679334282875061
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.0413469076156616,
+                "mean_score": 1.0413469076156616
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.1622614860534668,
+                "mean_score": 1.1622614860534668
+              }
+            ]
+          },
+          {
+            "i": 6,
+            "response": "[{\"start\": 56, \"end\": 57}, {\"start\": 110, \"end\": 114}, {\"start\": 128, \"end\": 129}, {\"start\": 136, \"end\": 141}, {\"start\": 200, \"end\": 201}, {\"start\": 218, \"end\": 219}]",
+            "parsed": [
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 110,
+                "end": 114
+              },
+              {
+                "start": 128,
+                "end": 129
+              },
+              {
+                "start": 136,
+                "end": 141
+              },
+              {
+                "start": 200,
+                "end": 201
+              },
+              {
+                "start": 218,
+                "end": 219
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 408,
+                "end": 432,
+                "peak_score": 1.4791163206100464,
+                "mean_score": 0.9971974492073059
+              },
+              {
+                "start": 438,
+                "end": 456,
+                "peak_score": 6.572040557861328,
+                "mean_score": 2.5444226264953613
+              },
+              {
+                "start": 510,
+                "end": 516,
+                "peak_score": 1.798267126083374,
+                "mean_score": 1.7982672452926636
+              },
+              {
+                "start": 546,
+                "end": 564,
+                "peak_score": 2.8019261360168457,
+                "mean_score": 1.262376308441162
+              },
+              {
+                "start": 798,
+                "end": 804,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              }
+            ]
+          },
+          {
+            "i": 7,
+            "response": "[{\"start\": 38, \"end\": 39}, {\"start\": 56, \"end\": 57}, {\"start\": 164, \"end\": 165}, {\"start\": 182, \"end\": 184}]",
+            "parsed": [
+              {
+                "start": 38,
+                "end": 39
+              },
+              {
+                "start": 56,
+                "end": 57
+              },
+              {
+                "start": 164,
+                "end": 165
+              },
+              {
+                "start": 182,
+                "end": 184
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 0.8139722347259521,
+                "mean_score": 0.8139722943305969
+              },
+              {
+                "start": 150,
+                "end": 156,
+                "peak_score": 1.4888335466384888,
+                "mean_score": 1.4888335466384888
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 1.475015640258789,
+                "mean_score": 1.475015640258789
+              },
+              {
+                "start": 366,
+                "end": 372,
+                "peak_score": 0.7679334282875061,
+                "mean_score": 0.7679334282875061
+              },
+              {
+                "start": 438,
+                "end": 444,
+                "peak_score": 1.0413469076156616,
+                "mean_score": 1.0413469076156616
+              },
+              {
+                "start": 582,
+                "end": 588,
+                "peak_score": 0.959309995174408,
+                "mean_score": 0.959309995174408
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 1.8775811195373535,
+                "mean_score": 1.877581000328064
+              },
+              {
+                "start": 726,
+                "end": 738,
+                "peak_score": 0.6538152694702148,
+                "mean_score": 0.5295276641845703
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "mean_llm_affi_f1": 0.30745808210315506,
+    "mean_lafr_llm_affi_f1": 0.46715954821087224,
+    "mean_lafr_detector_affi_f1": 0.6354699436944429,
+    "mean_delta_lafr_llm_minus_llm": 0.15970146610771718
+  }
+}

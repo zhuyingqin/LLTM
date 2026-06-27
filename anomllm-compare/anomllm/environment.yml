@@ -1,0 +1,8 @@
+name: anomllm
+channels:
+  - conda-forge
+  - nvidia
+dependencies:
+  - poetry=1.*
+  - python=3.10.*
+  - pip

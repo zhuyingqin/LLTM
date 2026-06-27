@@ -1,0 +1,202 @@
+{
+  "config": {
+    "data_root": "C:\\\u6742\u7269\\LLM-NN\\anomllm-compare\\data",
+    "types": "point",
+    "model": "models/Qwen3-8B",
+    "num": "1",
+    "scale": "0.2",
+    "max_new_tokens": "96",
+    "window": "72",
+    "patch": "6",
+    "lafr_epochs": "1",
+    "lafr_lr": "0.002",
+    "lafr_max_candidates": "8",
+    "quantization": "4bit",
+    "device": "cuda",
+    "seed": "13",
+    "output": "anomllm-compare\\lafr_qwen_smoke.json",
+    "save_raw": "True"
+  },
+  "results": {
+    "point": {
+      "lafr_detector": {
+        "n": 1,
+        "metrics": {
+          "precision": 0.08333333333333333,
+          "recall": 0.4666666666666667,
+          "f1": 0.1414141414141414,
+          "affi precision": 0.6686666666666666,
+          "affi recall": 0.9957333333333334,
+          "affi f1": 0.8000645144062591
+        },
+        "threshold": 0.16330200427108052,
+        "train_affi_f1": 0.5812492411955205
+      },
+      "llm": {
+        "n": 1,
+        "metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "affi precision": 0.54,
+          "affi recall": 0.9450000000000001,
+          "affi f1": 0.6872727272727274
+        }
+      },
+      "lafr_llm": {
+        "n": 1,
+        "metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "affi precision": 0.54,
+          "affi recall": 0.9450000000000001,
+          "affi f1": 0.6872727272727274
+        }
+      },
+      "lafr_train_loss": [
+        4.89056812286377
+      ],
+      "raw": {
+        "llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 1.233165979385376,
+                "mean_score": 1.2331658601760864
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 2.4670116901397705,
+                "mean_score": 2.4670116901397705
+              },
+              {
+                "start": 294,
+                "end": 300,
+                "peak_score": 0.8630850315093994,
+                "mean_score": 0.8630849719047546
+              },
+              {
+                "start": 438,
+                "end": 450,
+                "peak_score": 1.0728421211242676,
+                "mean_score": 0.7224223613739014
+              },
+              {
+                "start": 480,
+                "end": 492,
+                "peak_score": 1.0095571279525757,
+                "mean_score": 0.6618521213531494
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.334991216659546,
+                "mean_score": 2.334991216659546
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.3983944654464722,
+                "mean_score": 1.3983944654464722
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0340629816055298,
+                "mean_score": 1.0340629816055298
+              }
+            ]
+          }
+        ],
+        "lafr_llm": [
+          {
+            "i": 0,
+            "response": "[{\"start\": 12, \"end\": 25}, {\"start\": 80, \"end\": 93}]",
+            "parsed": [
+              {
+                "start": 12,
+                "end": 25
+              },
+              {
+                "start": 80,
+                "end": 93
+              }
+            ],
+            "lafr_candidates": [
+              {
+                "start": 6,
+                "end": 12,
+                "peak_score": 1.233165979385376,
+                "mean_score": 1.2331658601760864
+              },
+              {
+                "start": 222,
+                "end": 228,
+                "peak_score": 2.4670116901397705,
+                "mean_score": 2.4670116901397705
+              },
+              {
+                "start": 294,
+                "end": 300,
+                "peak_score": 0.8630850315093994,
+                "mean_score": 0.8630849719047546
+              },
+              {
+                "start": 438,
+                "end": 450,
+                "peak_score": 1.0728421211242676,
+                "mean_score": 0.7224223613739014
+              },
+              {
+                "start": 480,
+                "end": 492,
+                "peak_score": 1.0095571279525757,
+                "mean_score": 0.6618521213531494
+              },
+              {
+                "start": 654,
+                "end": 660,
+                "peak_score": 2.334991216659546,
+                "mean_score": 2.334991216659546
+              },
+              {
+                "start": 726,
+                "end": 732,
+                "peak_score": 1.3983944654464722,
+                "mean_score": 1.3983944654464722
+              },
+              {
+                "start": 870,
+                "end": 876,
+                "peak_score": 1.0340629816055298,
+                "mean_score": 1.0340629816055298
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "mean_llm_affi_f1": 0.6872727272727274,
+    "mean_lafr_llm_affi_f1": 0.6872727272727274,
+    "mean_lafr_detector_affi_f1": 0.8000645144062591,
+    "mean_delta_lafr_llm_minus_llm": 0.0
+  }
+}
