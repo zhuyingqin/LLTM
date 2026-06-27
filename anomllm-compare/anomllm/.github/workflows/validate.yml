@@ -1,0 +1,46 @@
+name: Environment and Script Check
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  check-environment-and-run-script:
+    name: Check Environment and Run Script
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-activate-base: false
+          activate-environment: anomllm
+          environment-file: environment.yml
+
+      - name: Create Conda environment and install dependencies
+        shell: bash -l {0}
+        run: |
+          poetry install --no-root --with dev
+
+      - name: Save credentials
+        run: echo "${{ secrets.CREDENTIALS }}" > credentials.yml
+
+      - name: Convert Jupyter notebook to Python script
+        shell: bash -l {0}
+        run: |
+          jupyter nbconvert --to script notebook/example.ipynb
+
+      - name: Run converted script
+        shell: bash -l {0}
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          wget https://github.com/peak/s5cmd/releases/download/v2.2.2/s5cmd_2.2.2_Linux-64bit.tar.gz
+          tar -xzvf s5cmd_2.2.2_Linux-64bit.tar.gz
+          chmod +x s5cmd
+          ./s5cmd --no-sign-request --endpoint-url https://s3-west.nrp-nautilus.io cp "s3://anomllm/data/*" data/
+          python notebook/example.py

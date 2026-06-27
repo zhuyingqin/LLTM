@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAFR + LLM Internal Token Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace">
+      <aside class="sample-rail">
+        <div class="brand-row">
+          <div class="mark">LT</div>
+          <div>
+            <h1>LAFR + LLM</h1>
+            <p>internal-token policy demo</p>
+          </div>
+        </div>
+        <div class="sample-list" id="sampleList"></div>
+      </aside>
+
+      <section class="editor-pane">
+        <div class="toolbar">
+          <div class="mode-tabs" role="tablist" aria-label="view mode">
+            <button class="tab is-active" data-mode="compare">对比</button>
+            <button class="tab" data-mode="token">Token</button>
+            <button class="tab" data-mode="json">JSON</button>
+          </div>
+          <div class="actions">
+            <button id="runBtn">分析</button>
+            <button id="copyBtn">复制 JSON</button>
+          </div>
+        </div>
+
+        <label class="field-label" for="requestText">用户提问</label>
+        <textarea id="requestText" class="request-box" spellcheck="false"></textarea>
+
+        <label class="field-label" for="csvText">CSV</label>
+        <textarea id="csvText" class="csv-box" spellcheck="false"></textarea>
+      </section>
+
+      <section class="result-pane">
+        <div class="token-strip" id="tokenStrip"></div>
+        <div class="plot-wrap">
+          <canvas id="seriesCanvas" width="960" height="320"></canvas>
+        </div>
+
+        <div class="result-grid">
+          <section class="result-section">
+            <h2>旧 LAFR+LLM</h2>
+            <table>
+              <thead><tr><th>start</th><th>end</th><th>source</th></tr></thead>
+              <tbody id="oldRows"></tbody>
+            </table>
+          </section>
+
+          <section class="result-section">
+            <h2>新 token-policy</h2>
+            <table>
+              <thead><tr><th>start</th><th>end</th><th>source</th></tr></thead>
+              <tbody id="newRows"></tbody>
+            </table>
+          </section>
+        </div>
+
+        <section class="trace-panel">
+          <h2>内部路由</h2>
+          <pre id="traceBox"></pre>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

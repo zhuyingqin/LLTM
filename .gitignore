@@ -1,0 +1,44 @@
+# Models — do NOT push large model weights to GitHub
+models/
+*.pt
+*.safetensors
+*.bin
+*.gguf
+*.pth
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Node (in case any web tooling is present)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / dist
+dist/
+build/
+*.egg-info/
