@@ -45,6 +45,7 @@ DEFAULT_LAG_BINS: List[int] = [0, 1, 2, 3, 4, 6, 8]
 @dataclass
 class LAFROutput:
     step_hidden: torch.Tensor              # (B, P, C, d)   Z'  -> downstream heads + Adapter
+    next_patch_forecast: torch.Tensor      # (B, P, C)      yhat_{p+1|p}; last slot predicts unseen next patch
     boundary_logits: torch.Tensor          # (B, P)         b_t -> event localization
     soft_boundary_positions: torch.Tensor  # (B, K)         p_k -> event window readout
     soft_boundary_weights: torch.Tensor    # (B, K, P)      w_k
@@ -128,6 +129,9 @@ class PairwiseLagBank(nn.Module):
         eps = 1e-5
         cols: List[torch.Tensor] = []
         for g in self.lag_bins:
+            if g >= p:
+                cols.append(value.new_zeros(b, c, c))
+                continue
             xi = value if g == 0 else value[:, : p - g, :]
             xj = value if g == 0 else value[:, g:, :]
             xi = xi - xi.mean(dim=1, keepdim=True)
@@ -467,10 +471,75 @@ class LAFR(nn.Module):
     def forward(self, x: torch.Tensor) -> LAFROutput:
         return self._encode(self._patchify(x), x)
 
+    def forecast(self, x: torch.Tensor, horizon_patches: int = 1) -> torch.Tensor:
+        """Forecast future patch means from a context window.
+
+        Returns a tensor with shape (B, horizon_patches, C). The values live in the
+        same normalized/patch-mean space as `_patchify(x)`: if callers standardize
+        input windows before LAFR, the forecast is standardized too.
+        """
+        horizon = int(horizon_patches)
+        if horizon < 1:
+            raise ValueError("horizon_patches must be >= 1")
+
+        value = self._patchify(x)
+        if value.shape[1] < 1:
+            raise ValueError("input must contain at least one full patch")
+
+        raw_steps = value.shape[1] * self.patch
+        cur_value = value
+        cur_raw = x[:, :raw_steps, :]
+        preds: List[torch.Tensor] = []
+        for _ in range(horizon):
+            bb = self._backbone(cur_value, cur_raw)
+            next_value = self.forecast_head(bb["z"][:, -1:, :, :]).squeeze(-1)
+            preds.append(next_value)
+            cur_value = torch.cat([cur_value, next_value], dim=1)
+            cur_raw = torch.cat([cur_raw, next_value.repeat_interleave(self.patch, dim=1)], dim=1)
+        return torch.cat(preds, dim=1)
+
+    def forecasting_loss(
+        self,
+        x: torch.Tensor,
+        context_patches: int,
+        horizon_patches: int = 1,
+    ) -> Tuple[torch.Tensor, Dict[str, float]]:
+        """Supervised forecasting loss using a prefix of `x` as context.
+
+        This keeps forecasting inside LAFR while making benchmark scripts simple:
+        pass a longer window, choose the context length in patches, and optimize
+        the returned MSE against the held-out future patch means.
+        """
+        value = self._patchify(x)
+        context = int(context_patches)
+        horizon = int(horizon_patches)
+        if context < 1:
+            raise ValueError("context_patches must be >= 1")
+        if horizon < 1:
+            raise ValueError("horizon_patches must be >= 1")
+        if context + horizon > value.shape[1]:
+            raise ValueError(
+                "context_patches + horizon_patches must not exceed the number of full patches"
+            )
+
+        context_x = x[:, : context * self.patch, :]
+        target = value[:, context: context + horizon, :]
+        pred = self.forecast(context_x, horizon)
+        loss = F.mse_loss(pred, target)
+        mae = F.l1_loss(pred, target)
+        logs = {
+            "forecast_mse": float(loss.detach()),
+            "forecast_mae": float(mae.detach()),
+            "context_patches": float(context),
+            "horizon_patches": float(horizon),
+        }
+        return loss, logs
+
     def _encode(self, value: torch.Tensor, x_raw: torch.Tensor) -> LAFROutput:
         b, P, c = value.shape
         bb = self._backbone(value, x_raw)
         z, r_ij, tau, attn_mag = bb["z"], bb["r_ij"], bb["tau"], bb["attn_mag"]
+        next_patch_forecast = self.forecast_head(z).squeeze(-1)
 
         # §1.4.5 boundary score over patches (channel-agnostic eventness)
         boundary_logits = self.boundary_head(z.mean(dim=2)).squeeze(-1)   # (B, P)
@@ -498,6 +567,7 @@ class LAFR(nn.Module):
 
         return LAFROutput(
             step_hidden=z,
+            next_patch_forecast=next_patch_forecast,
             boundary_logits=boundary_logits,
             soft_boundary_positions=positions,
             soft_boundary_weights=weights,
@@ -627,6 +697,7 @@ def _smoke() -> None:
     out = model(x)
     expect = {
         "step_hidden": (B, P, C, 64),
+        "next_patch_forecast": (B, P, C),
         "boundary_logits": (B, P),
         "soft_boundary_positions": (B, 6),
         "soft_boundary_weights": (B, 6, P),
@@ -712,6 +783,14 @@ def _smoke() -> None:
     asym = (out.lag_pred + out.lag_pred.transpose(-1, -2)).abs().max().item()
     assert asym < 1e-4, f"lag readout is not anti-symmetric (max |tau_ij+tau_ji|={asym:.2e})"
     print(f"[OK] grounded lag is anti-symmetric (max |tau_ij + tau_ji| = {asym:.1e})")
+
+    # ---- native forecasting interface (kept on LAFR, not a separate module) ----
+    pred = model.forecast(x[:, :48], horizon_patches=3)
+    assert tuple(pred.shape) == (B, 3, C), f"forecast shape expected {(B, 3, C)}, got {tuple(pred.shape)}"
+    fl, flog = model.forecasting_loss(x, context_patches=8, horizon_patches=2)
+    assert torch.isfinite(fl), "forecasting_loss is non-finite"
+    assert "forecast_mse" in flog and "forecast_mae" in flog, "forecasting logs incomplete"
+    print(f"[OK] native forecast API: pred={tuple(pred.shape)}  logs={flog}")
 
     # ---- CORE PROOF: recover a CONFOUNDED dependency graph (conditional, not marginal) ----
     # Plant a confounder: driver = ch0 drives ch1 and ch2 (ch1,ch2 = ch0 + indep noise).
