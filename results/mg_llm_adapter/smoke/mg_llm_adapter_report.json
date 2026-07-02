@@ -1,0 +1,56 @@
+{
+  "config": {
+    "llm": "Qwen/Qwen3.5-0.8B",
+    "output_dir": "results\\mg_llm_adapter\\smoke",
+    "channels": "8",
+    "window": "72",
+    "patch": "6",
+    "m_slots": "4",
+    "bank_length": "6000",
+    "lafr_windows": "96",
+    "lafr_epochs": "1",
+    "lafr_batch": "32",
+    "n_train": "24",
+    "n_eval": "18",
+    "epochs": "1",
+    "lr": "0.001",
+    "batch_size": "8",
+    "seed": "13",
+    "device": "cuda",
+    "smoke": "True"
+  },
+  "device": "cuda",
+  "runtime_sec": 166.0,
+  "train_ce": [
+    5.161458333333333
+  ],
+  "pre_train": {
+    "correct": 0.5555555555555556,
+    "shuffled": 0.5555555555555556,
+    "no_token": 0.5555555555555556
+  },
+  "post_train": {
+    "correct": 0.5555555555555556,
+    "shuffled": 0.5555555555555556,
+    "no_token": 0.5555555555555556
+  },
+  "by_task": {
+    "conf": {
+      "correct": 0.7142857142857143,
+      "shuffled": 0.7142857142857143,
+      "no_token": 0.7142857142857143
+    },
+    "cp": {
+      "correct": 0.4,
+      "shuffled": 0.4,
+      "no_token": 0.4
+    },
+    "lead": {
+      "correct": 0.5,
+      "shuffled": 0.5,
+      "no_token": 0.5
+    }
+  },
+  "n_train": 24,
+  "n_eval": 18
+}

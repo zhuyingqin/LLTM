@@ -1,0 +1,128 @@
+{
+  "config": {
+    "train_per_type": 12,
+    "eval_per_type": 12,
+    "epochs": 1,
+    "window": 72,
+    "patch": 6,
+    "device": "cpu",
+    "note": "quick standalone LAFR sanity run; small subset, not paper-grade"
+  },
+  "results": {
+    "point": {
+      "iso_forest": {
+        "precision": 0.04900936518578266,
+        "recall": 0.9105691056910569,
+        "f1": 0.09045002300800366,
+        "affi precision": 0.46119362818628024,
+        "affi recall": 0.9166609683687482,
+        "affi f1": 0.6136362074660752
+      },
+      "threshold": {
+        "precision": 0.029905995728921688,
+        "recall": 0.03695155908394552,
+        "f1": 0.028852342021979397,
+        "affi precision": 0.4497956388794524,
+        "affi recall": 0.8948865953976348,
+        "affi f1": 0.5986256236287648
+      },
+      "lafr_ours": {
+        "precision": 0.052469135802469126,
+        "recall": 0.03784125231493652,
+        "f1": 0.041080040030169025,
+        "affi precision": 0.5400559220526688,
+        "affi recall": 0.839501732115778,
+        "affi f1": 0.6551378332108282
+      },
+      "lafr_train_affi_f1": 0.5616562164564703,
+      "lafr_threshold": 1.921979308128357
+    },
+    "range": {
+      "iso_forest": {
+        "precision": 0.1593675390151528,
+        "recall": 0.6666666666666666,
+        "f1": 0.22969092367328156,
+        "affi precision": 0.40383102212650107,
+        "affi recall": 0.6666666666666666,
+        "affi f1": 0.5004327417357389
+      },
+      "threshold": {
+        "precision": 0.3354166666666667,
+        "recall": 0.5293519794698786,
+        "f1": 0.34397529476552463,
+        "affi precision": 0.5138904395495753,
+        "affi recall": 0.6659952153123764,
+        "affi f1": 0.5762160806793286
+      },
+      "lafr_ours": {
+        "precision": 0.6770833333333334,
+        "recall": 0.5561841505267958,
+        "f1": 0.5793223673408006,
+        "affi precision": 0.7490849855431639,
+        "affi recall": 0.6451656406369651,
+        "affi f1": 0.6714475937679584
+      },
+      "lafr_train_affi_f1": 0.6235947909506031,
+      "lafr_threshold": 4.034972009658756
+    },
+    "trend": {
+      "iso_forest": {
+        "precision": 0.061804836487902554,
+        "recall": 0.13925103305785125,
+        "f1": 0.07953760407456098,
+        "affi precision": 0.1369567429333696,
+        "affi recall": 0.24884393595041324,
+        "affi f1": 0.1765098823160087
+      },
+      "threshold": {
+        "precision": 0.06041666666666667,
+        "recall": 0.016447141873278236,
+        "f1": 0.024485277202668507,
+        "affi precision": 0.12481562499999999,
+        "affi recall": 0.23412452070420112,
+        "affi f1": 0.16274518247753522
+      },
+      "lafr_ours": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75,
+        "affi precision": 0.75,
+        "affi recall": 0.75,
+        "affi f1": 0.75
+      },
+      "lafr_train_affi_f1": 0.7348082332926175,
+      "lafr_threshold": 1.458489179611206
+    },
+    "freq": {
+      "iso_forest": {
+        "precision": 0.041833333333333333,
+        "recall": 0.9166666666666666,
+        "f1": 0.07874569231717955,
+        "affi precision": 0.4643448220976007,
+        "affi recall": 0.9166666666666666,
+        "affi f1": 0.6163885104454928
+      },
+      "threshold": {
+        "precision": 0.04259645784206045,
+        "recall": 0.04827053165932868,
+        "f1": 0.042787481129128925,
+        "affi precision": 0.4531577707047732,
+        "affi recall": 0.8406963706612557,
+        "affi f1": 0.587259189804238
+      },
+      "lafr_ours": {
+        "precision": 0.06576495141662055,
+        "recall": 0.12137352530800234,
+        "f1": 0.0820034504124124,
+        "affi precision": 0.49895879450385294,
+        "affi recall": 0.7892199677182208,
+        "affi f1": 0.6088018246630388
+      },
+      "lafr_train_affi_f1": 0.7076285360885787,
+      "lafr_threshold": 0.733617901802063
+    }
+  },
+  "mean_iso_forest_affi_f1": 0.47674183549082894,
+  "mean_threshold_affi_f1": 0.4812115191474666,
+  "mean_lafr_ours_affi_f1": 0.6713468129104564
+}
