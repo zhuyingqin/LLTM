@@ -1,0 +1,63 @@
+{
+  "config": {
+    "llm": "Qwen/Qwen3.5-0.8B",
+    "output_dir": "results\\mg_llm_adapter",
+    "channels": "8",
+    "window": "72",
+    "patch": "6",
+    "m_slots": "4",
+    "bank_length": "6000",
+    "lafr_windows": "600",
+    "lafr_epochs": "6",
+    "lafr_batch": "32",
+    "n_train": "300",
+    "n_eval": "180",
+    "epochs": "8",
+    "lr": "0.001",
+    "batch_size": "8",
+    "seed": "13",
+    "device": "cuda",
+    "smoke": "False"
+  },
+  "device": "cuda",
+  "runtime_sec": 12679.3,
+  "train_ce": [
+    1.40234375,
+    0.6891447368421053,
+    0.6392372532894737,
+    0.5750925164473685,
+    0.5569490131578947,
+    0.46528063322368424,
+    0.4251644736842105,
+    0.4478567023026316
+  ],
+  "pre_train": {
+    "correct": 0.46111111111111114,
+    "shuffled": 0.46111111111111114,
+    "no_token": 0.46111111111111114
+  },
+  "post_train": {
+    "correct": 0.75,
+    "shuffled": 0.49444444444444446,
+    "no_token": 0.46111111111111114
+  },
+  "by_task": {
+    "conf": {
+      "correct": 0.9661016949152542,
+      "shuffled": 0.423728813559322,
+      "no_token": 0.4576271186440678
+    },
+    "cp": {
+      "correct": 0.4642857142857143,
+      "shuffled": 0.5714285714285714,
+      "no_token": 0.44642857142857145
+    },
+    "lead": {
+      "correct": 0.8,
+      "shuffled": 0.5846153846153846,
+      "no_token": 0.47692307692307695
+    }
+  },
+  "n_train": 300,
+  "n_eval": 180
+}

@@ -10,5 +10,8 @@
 | 2026-07-01 17:24 | /paper-plan | PAPER_PLAN.md | paper | latest copy |
 | 2026-07-01 18:25 | /paper-plan | PAPER_PLAN_20260701_182526.md | paper | 架构决策落地：核心方案定为"统一入口+内部路由"（非agent式），冻结骨干统一为Qwen3.5-0.8B（接口B先smoke test，退路8B+解释），新增C6 structure-beats-scale三方对照，Next Steps增加第0步 |
 | 2026-07-01 18:25 | /paper-plan | PAPER_PLAN.md | paper | latest copy |
+| 2026-07-01 22:09 | manual | PAPER_PLAN_20260701_220901.md | paper | MG简化验证线正式结果落地：新增证据盘点行+C7，总体接地成立(gap+0.256)，2/3任务grounded（conf+0.542/lead+0.215），cp任务异常(gap-0.107)需诊断；Next Steps新增cp诊断+多seed待办 |
+| 2026-07-01 22:09 | manual | PAPER_PLAN.md | paper | latest copy |
+| 2026-07-01 22:09 | manual | mg_llm_track/README.md | docs | 回填正式运行结果（耗时12679s），含分任务表格与cp异常的三个候选解释 |
 | 2026-07-01 | manual | experiments/mg_llm_adapter.py | code | MG简化验证线：MG序列→LAFR(冻结)→adapter对齐token→冻结Qwen3.5-0.8B→答案，复用llm_adapter.py的三重接地协议(correct/shuffled/no_token) |
 | 2026-07-01 | manual | mg_llm_track/README.md | docs | MG LLM track独立文档文件夹：说明架构、依赖、运行命令、结果解读标准；不复制脚本，只引用experiments/下的共享模块 |
