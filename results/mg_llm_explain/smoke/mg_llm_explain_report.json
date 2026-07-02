@@ -1,0 +1,457 @@
+{
+  "config": {
+    "llm": "Qwen/Qwen3.5-0.8B",
+    "output_dir": "results\\mg_llm_explain\\smoke",
+    "channels": "8",
+    "window": "72",
+    "patch": "6",
+    "m_slots": "4",
+    "bank_length": "6000",
+    "lafr_windows": "96",
+    "lafr_epochs": "1",
+    "lafr_batch": "32",
+    "n_train": "18",
+    "n_eval": "12",
+    "epochs": "1",
+    "lr": "0.001",
+    "batch_size": "6",
+    "max_new": "48",
+    "n_samples": "4",
+    "seed": "13",
+    "device": "cuda",
+    "smoke": "True",
+    "demo": "False",
+    "demo_n": "2"
+  },
+  "device": "cuda",
+  "runtime_sec": 171.8,
+  "train_ce": [
+    2.5989583333333335
+  ],
+  "gen_eval": {
+    "correct": {
+      "conf": {
+        "n": 6,
+        "parse_rate": 1.0,
+        "fact_acc": 0.6666666666666666,
+        "mean_num_err": null
+      },
+      "lead": {
+        "n": 2,
+        "parse_rate": 1.0,
+        "fact_acc": 1.0,
+        "mean_num_err": 3.5
+      },
+      "cp": {
+        "n": 4,
+        "parse_rate": 1.0,
+        "fact_acc": 0.75,
+        "mean_num_err": null
+      }
+    },
+    "shuffled": {
+      "conf": {
+        "n": 6,
+        "parse_rate": 1.0,
+        "fact_acc": 0.6666666666666666,
+        "mean_num_err": null
+      },
+      "lead": {
+        "n": 2,
+        "parse_rate": 1.0,
+        "fact_acc": 1.0,
+        "mean_num_err": 2.0
+      },
+      "cp": {
+        "n": 4,
+        "parse_rate": 1.0,
+        "fact_acc": 0.75,
+        "mean_num_err": null
+      }
+    },
+    "no_token": {
+      "conf": {
+        "n": 6,
+        "parse_rate": 1.0,
+        "fact_acc": 0.6666666666666666,
+        "mean_num_err": null
+      },
+      "lead": {
+        "n": 2,
+        "parse_rate": 1.0,
+        "fact_acc": 1.0,
+        "mean_num_err": 2.0
+      },
+      "cp": {
+        "n": 4,
+        "parse_rate": 1.0,
+        "fact_acc": 0.75,
+        "mean_num_err": 9.999999999999999e+29
+      }
+    }
+  },
+  "samples": {
+    "correct": [
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "Sensor A leads. Sensor B lags behind by about 10 patches.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 6
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 4
+        },
+        "generated": "Yes, the process switched to a new operating state during this window.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 5
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. The patch is the one where the process switches to a new operating state.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 2
+        },
+        "generated": "Sensor A leads. Sensor B lags behind by about 1 patch.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 1
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 6
+        },
+        "generated": "Yes, the process switched to a new operating state during the patch with ID 10000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      }
+    ],
+    "shuffled": [
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "Sensor A leads. Sensor A is 1 patch ahead of B.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 3
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 4
+        },
+        "generated": "Yes, the process switched to a new operating state during the patch with ID 10000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 5
+        },
+        "generated": "Yes, the process switched to a new operating state during this window.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 2
+        },
+        "generated": "Sensor A leads. Sensor B is delayed by about 1 patch.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 1
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 6
+        },
+        "generated": "Yes, the process switched to a new operating state during this window.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": null
+        }
+      }
+    ],
+    "no_token": [
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 3
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 4
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": 999999999999999999999999999996
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 5
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": 999999999999999999999999999995
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 2
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 1
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": 6
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "loc_err": 999999999999999999999999999994
+        }
+      }
+    ]
+  },
+  "n_train": 18,
+  "n_eval": 12
+}

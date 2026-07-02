@@ -107,3 +107,33 @@ python experiments/mg_llm_adapter.py
 - 优先诊断 cp 任务反常：换用更保守/自适应的注入幅度（按每窗口标准差比例而非固定 gain/shift）重跑一次,看 gap 会不会转正；
 - 补多个 seed，报 mean±std（当前只有一次运行,±多少噪声未知）；
 - 若要支持 C6"structure beats scale"，还需要跑一版 8B+纯文本对照，本次结果只证明了"0.8B+token 本身能接地"，还没有和"大模型+文本"比较过。
+
+---
+
+## 解释版实验（2026-07-01 第二轮，[mg_llm_explain.py](../experiments/mg_llm_explain.py)）
+
+按核心设想升级输出端：**LLM 不再是被读 logit 的打分器，而是自由生成自然语言解释**，评估改为解析生成文本里的事实主张（谁领先/滞后几个 patch/直接还是混杂/有无变点及位置）并对照注入的 ground truth 打分；三重接地对照（correct/shuffled/no_token）原样保留，防止"解释流利但全是编的"。训练目标是由已知注入结构自动构造的标准解释句（约 40 token/条，监督信号比单字母密集得多）。
+
+**运行**：
+```bash
+python experiments/mg_llm_explain.py            # 完整训练+评估（本次实测 48 分钟,比打分版快）
+python experiments/mg_llm_explain.py --smoke    # 冒烟
+python experiments/mg_llm_explain.py --demo     # 加载已训练权重,现场打印 LLM 对新窗口的解释
+```
+
+**结果**（240 条训练×5 epoch，90 条生成评估×3 条件，adapter CE 1.05→0.06，耗时 2875s）：
+
+| 任务 | correct 事实准确率 | shuffled | no_token | gap | 判定 |
+|---|---|---|---|---|---|
+| conf | 0.800 | 0.571 | 0.429 | **+0.229** | ✅ 解释接地 |
+| lead | 0.704 | 0.407 | 0.481 | **+0.296** | ✅ 解释接地 |
+| cp | 0.429 | 0.429 | 0.429 | **0.000** | ❌ 未接地（模型对所有窗口都答"Yes,около patch 4/5"，准确率=Yes 类基率） |
+
+生成质量细节：parse 率 100%（输出稳定贴合训练模板）；lead 任务在方向答对时,滞后量 tau 的平均误差约 1.05 个 patch（正确 token 条件),而 no_token 条件下 tau 误差 2.23、cp 位置会幻觉出"patch 10^30"这种荒谬数字——**结构 token 不仅决定对错,还明显抑制了数值幻觉**。
+
+**LLM 实际说的话**（correct 条件样例,可在 report json 的 `samples` 字段读全部）：
+
+> *"Sensor A leads. Sensor B repeats sensor A's pattern about 3 patches later, so A is the driver and B is the delayed follower."*（GT: A 领先 τ=4——方向对,数值差 1）
+> *"The link between B and C is confounded: both follow the same driver A, so there is no direct dependency between them."*（GT: 混杂——完全正确）
+
+**两轮实验合起来的关键发现**：cp（变化点）任务在两种完全不同的输出协议下（logit 打分 gap=−0.107;自由生成 gap=0.000）都不接地——这基本排除了"评估方式的锅"，指向 change-point 信号本身没有通过 event-token 通路传到 LLM（首要怀疑:`make_changepoint` 的固定注入幅度是按 CARE 真实尺度校准的,不适配标准化后的 MG 数据;其次是 event/time token 子模块本身）。这是一个可复现的、值得写进论文分析节的具体现象。

@@ -1,0 +1,539 @@
+{
+  "config": {
+    "llm": "Qwen/Qwen3.5-0.8B",
+    "output_dir": "results\\mg_llm_explain",
+    "channels": "8",
+    "window": "72",
+    "patch": "6",
+    "m_slots": "4",
+    "bank_length": "6000",
+    "lafr_windows": "600",
+    "lafr_epochs": "6",
+    "lafr_batch": "32",
+    "n_train": "240",
+    "n_eval": "90",
+    "epochs": "5",
+    "lr": "0.001",
+    "batch_size": "6",
+    "max_new": "48",
+    "n_samples": "4",
+    "seed": "13",
+    "device": "cuda",
+    "smoke": "False",
+    "demo": "False",
+    "demo_n": "2"
+  },
+  "device": "cuda",
+  "runtime_sec": 2874.6,
+  "train_ce": [
+    1.050439453125,
+    0.10128173828125,
+    0.063818359375,
+    0.06597900390625,
+    0.06231689453125
+  ],
+  "gen_eval": {
+    "correct": {
+      "lead": {
+        "n": 27,
+        "parse_rate": 1.0,
+        "fact_acc": 0.7037037037037037,
+        "mean_num_err": 1.0526315789473684
+      },
+      "cp": {
+        "n": 28,
+        "parse_rate": 1.0,
+        "fact_acc": 0.42857142857142855,
+        "mean_num_err": 2.3636363636363638
+      },
+      "conf": {
+        "n": 35,
+        "parse_rate": 1.0,
+        "fact_acc": 0.8,
+        "mean_num_err": null
+      }
+    },
+    "shuffled": {
+      "lead": {
+        "n": 27,
+        "parse_rate": 1.0,
+        "fact_acc": 0.4074074074074074,
+        "mean_num_err": 1.0
+      },
+      "cp": {
+        "n": 28,
+        "parse_rate": 1.0,
+        "fact_acc": 0.42857142857142855,
+        "mean_num_err": 2.3333333333333335
+      },
+      "conf": {
+        "n": 35,
+        "parse_rate": 1.0,
+        "fact_acc": 0.5714285714285714,
+        "mean_num_err": null
+      }
+    },
+    "no_token": {
+      "lead": {
+        "n": 27,
+        "parse_rate": 1.0,
+        "fact_acc": 0.48148148148148145,
+        "mean_num_err": 2.230769230769231
+      },
+      "cp": {
+        "n": 28,
+        "parse_rate": 1.0,
+        "fact_acc": 0.42857142857142855,
+        "mean_num_err": 9.999999999999999e+29
+      },
+      "conf": {
+        "n": 35,
+        "parse_rate": 1.0,
+        "fact_acc": 0.42857142857142855,
+        "mean_num_err": null
+      }
+    }
+  },
+  "samples": {
+    "correct": [
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 2 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 1
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 2 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 2 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 2
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 5: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 3 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "The link between B and C is confounded: both follow the same driver A, so there is no direct dependency between them.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      }
+    ],
+    "shuffled": [
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 3 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 1
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 2 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 5: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "Sensor B leads. Sensor A repeats sensor B's pattern about 2 patches later, so B is the driver and A is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "Sensor A leads. Sensor B repeats sensor A's pattern about 3 patches later, so A is the driver and B is the delayed follower.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "The link between B and C is confounded: both follow the same driver A, so there is no direct dependency between them.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes. A regime change occurs around patch 4: part of the channels jump to a new operating level and stay there.",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "The link between B and C is direct: C follows B itself, not a shared driver.",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      }
+    ],
+    "no_token": [
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 1
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "A",
+          "tau": 4
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": true,
+          "tau_err": 3
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "lead",
+        "facts": {
+          "leader": "B",
+          "tau": 3
+        },
+        "generated": "A. Sensor A leads, B is 1 patch behind. Explanation: Sensor A is the first sensor to move, so it leads. Sensor B is 1 patch behind. Question: Two of the sensors move together with a",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "tau_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": false
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": true
+        }
+      },
+      {
+        "task": "cp",
+        "facts": {
+          "cp": null
+        },
+        "generated": "Yes, the process switched to a new operating state during this window. Around patch 1000000000000000000000000000000",
+        "score": {
+          "parsed": true,
+          "correct": false,
+          "loc_err": null
+        }
+      },
+      {
+        "task": "conf",
+        "facts": {
+          "direct": true
+        },
+        "generated": "Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B and sensor C are both correlated. Their link is a CONFOUNDED through a shared driver. Sensor B",
+        "score": {
+          "parsed": true,
+          "correct": false
+        }
+      }
+    ]
+  },
+  "n_train": 240,
+  "n_eval": 90
+}
